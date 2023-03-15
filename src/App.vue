@@ -1,11 +1,12 @@
 <template>
-  <body class="bg-gray-800 h-screen">
-    <div class="text-white grid justify-center pt-10 mb-10 font-bold">
-      <router-link to="/">VueMovies</router-link>
-      
-    </div>
+  <header>
+    <router-link class="text-white grid justify-center pt-10  font-bold" to="/">
+      <h1><span class="text-yellow-400 font-medium">Vue</span>Movies</h1>
+    </router-link>
+  </header>
+  <main class="h-full w-full">
     <router-view />
-  </body>
+  </main>
 </template>
 
 <script setup>
@@ -13,4 +14,14 @@ import { RouterView } from 'vue-router'
 </script>
 
 
-<style scoped></style>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  /* background-color: #42B883; */
+}
+
+body {
+  background-color: #35495E;
+}
+</style>
