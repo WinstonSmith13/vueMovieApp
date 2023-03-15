@@ -1,5 +1,5 @@
 <template>
-  <div class="grid justify-center mb-20 ">
+  <div class="grid justify-center mb-20">
     <input v-model="search"
       class="mt-10 text-white px-4 py-1 placeholder-blue-300 border bg-gray-600 border-blue-500 rounded outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
       placeholder="Que cherches-tu ?" />
@@ -9,17 +9,17 @@
   <div class="relative">
     <div v-for="movie in movies" :key="movie.imdbID" class="relative text-white">
       <router-link :to="'/movie/' + movie.imdbID">
-        <img :src="movie.Poster" alt="movie.Poster" class="relative z-[0] block w-[100%] h-[300px] object-cover mb-10">
-        <div class="absolute z-[100] bg-black bg-opacity-30 w-full h-full left-0 right-0 bottom-0 p-10 ">
+        <img :src="movie.Poster" alt="movie.Poster" class="relative z-[0] block w-full h-[300px] object-cover mb-10">
+        <p class="font-bold uppercase text-black pl-1 pr-80 absolute z-[101] left-0 right-0 bottom-[270px] bg-yellow-400 inline-block py-1">{{ movie.Type }}</p>
+        <div class="absolute z-[100] bg-black bg-opacity-30 w-full h-full left-0 right-0 bottom-0 p-10">
           <h3 class="font-bold">{{ movie.Title }}</h3>
           <p>{{ movie.Year }}</p>
-          <p>{{ movie.Type }}</p>
         </div>
-        <!--  -->
       </router-link>
     </div>
   </div>
 </template>
+
 
 
 <script setup>
