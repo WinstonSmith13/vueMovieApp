@@ -10,10 +10,10 @@
     <div v-for="movie in movies" :key="movie.imdbID" class="relative text-white">
       <router-link :to="'/movie/' + movie.imdbID">
         <img :src="movie.Poster" alt="movie.Poster" class="relative z-[0] block w-[100%] h-[300px] object-cover mb-10">
-        <div class="absolute z-[100] bg-black bg-opacity-30 w-full h-full inset-0">
-          <h3 class="">Titre : {{ movie.Title }}</h3>
-          <p>Année : {{ movie.Year }}</p>
-          <p>Type : {{ movie.Type }}</p>
+        <div class="absolute z-[100] bg-black bg-opacity-30 w-full h-full left-0 right-0 bottom-0 p-10 ">
+          <h3 class="font-bold">{{ movie.Title }}</h3>
+          <p>{{ movie.Year }}</p>
+          <p>{{ movie.Type }}</p>
         </div>
         <!--  -->
       </router-link>
