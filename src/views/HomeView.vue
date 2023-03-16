@@ -24,12 +24,13 @@
 
 <script setup>
 import { ref } from "vue";
+import env from '@/env.js';
 
 const search = ref("");
 const movies = ref([]);
 
 function getApi() {
-  fetch(`http://www.omdbapi.com/?s=${search.value}&apikey=9630de31`)
+  fetch(`http://www.omdbapi.com/?s=${search.value}&apikey=${env.apiKey}`)
     .then((response) => response.json())
     .then((data) => {
       if (data.Response === "True") {
