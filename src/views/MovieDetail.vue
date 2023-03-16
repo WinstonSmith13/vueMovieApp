@@ -1,36 +1,35 @@
 <template>
-    <div>
-
-{{ movieDetail.Title }}
-{{ movieDetail.Year }}
-{{ movieDetail.Runtime }}
-{{ movieDetail.Plot }}
-{{ movieDetail.imdbRating }}
-
-<img :src="movieDetail.Poster" alt="">
+    <div class="p-[16px] bg-yellow-400 bg-opacity-50 mt-10 rounded-lg m-10">
+        <h2 class="text-[28px] text-white font-semibold">{{ movieDetail.Title }}</h2>
+        <p class="text-white mb-[16px]">{{ movieDetail.Year }}</p>
+      
+        <img :src="movieDetail.Poster" alt="movieDetail.Poster" class="block max-w-[200px] mb-[16px]">
+        <p class="text-white mb-[16px]">"{{ movieDetail.Plot }}"</p>
+        <button @click="$router.back()" class="bg-yellow-300 rounded-lg mt-4 hover:bg-yellow-50 p-2"> Back</button>
     </div>
-    <button @click="$router.back()" class="btn btn-primary btn-sm">&lt; Back</button>
+    
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onBeforeMount } from 'vue';
 import { useRoute } from 'vue-router';
 import env from '@/env.js';
 
+
 const route = useRoute();
 const id = route.params.id;
-const movieDetail = ref([]);
+const movieDetail = ref({});
 
-fetch (`http://www.omdbapi.com/?i=${id}&apikey=${env.apiKey}`)
-.then(response => response.json())
-.then(data => {
-    
-        movieDetail.value = data;
-     
+onBeforeMount (() => {
+    fetch(`http://www.omdbapi.com/?i=${id}&apikey=${env.apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+
+            movieDetail.value = data;
+
+        })
+
 })
-
-
-
 
 
 </script>

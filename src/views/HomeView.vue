@@ -6,14 +6,14 @@
     <button @click="getApi" class="bg-yellow-300 rounded-lg mt-4 hover:bg-yellow-50">SEARCH</button>
   </div>
 
-  <div class="relative">
-    <div v-for="movie in movies" :key="movie.imdbID" class="relative text-white">
+  <div class="relative flex flex-wrap m-10">
+    <div v-for="movie in movies" :key="movie.imdbID" class=" relative text-white m-auto max-w-md ">
       <router-link :to="'/movie/' + movie.imdbID">
         <img :src="movie.Poster" alt="movie.Poster" class="relative z-[0] block w-full h-[300px] object-cover mb-10">
-        <p class="font-bold uppercase text-black pl-1 pr-80 absolute z-[101] left-0 right-0 bottom-[270px] bg-yellow-400 inline-block py-1">{{ movie.Type }}</p>
-        <div class="absolute z-[100] bg-black bg-opacity-30 w-full h-full left-0 right-0 bottom-0 p-10">
+        <p class="font-bold capitalize text-black  absolute z-[101] left-0 bottom-[90%] bg-yellow-400 inline-block px-2">{{ movie.Type }}</p>
+        <div class="absolute z-[100] bg-black bg-opacity-30 w-full h-[100px] left-0 right-0 bottom-10 px-2 py-2 hover:rounded-t-lg  hover:bg-yellow-400">
           <h3 class="font-bold">{{ movie.Title }}</h3>
-          <p>{{ movie.Year }}</p>
+          <p class="text-[10px] ">{{ movie.Year }}</p>
         </div>
       </router-link>
     </div>
